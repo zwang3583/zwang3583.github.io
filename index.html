@@ -149,7 +149,7 @@
 											</div>
 										</div>
 										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
+											<li><a href="" class="button submit" onclick="sendEmail()">Send Message</a></li>
 										</ul>
 									</form>
 								</section>
@@ -203,6 +203,22 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script src= 
+			"https://smtpjs.com/v3/smtp.js"> 
+			</script> 
+			
+			<script type="text/javascript"> 
+				function sendEmail() { 
+				Email.send({
+					SecureToken : "14a74843-61ec-4588-9097-11a771a6c555",
+					To : 'zwan1312@bu.edu',
+					From : "zwan1312@bu.edu",
+					Subject : "Message from "+document.getElementById("name").value+", Email: "+document.getElementById("email").value,
+					Body : document.getElementById("message").value
+				}).then(
+					message => alert("Your message has been sent!")
+				);
+				} 
+			</script> 
 	</body>
 </html>
