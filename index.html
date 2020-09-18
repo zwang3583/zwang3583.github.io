@@ -209,8 +209,14 @@
 			
 			<script type="text/javascript"> 
 				function sendEmail() { 
-					console.log(document.getElementById("message").value);
-					Email.send({
+					if (document.getElementById("name").value === "") {
+						alert("Please enter your name!");
+					} else if (document.getElementById("email").value === "") {
+						alert("Please enter your email!");
+					} else if (document.getElementById("message").value === "") {
+						alert("Please enter your message!")
+					} else {
+						Email.send({
 						SecureToken : "14a74843-61ec-4588-9097-11a771a6c555",
 						To : 'zwan1312@bu.edu',
 						From : "zwan1312@bu.edu",
@@ -219,6 +225,7 @@
 					}).then(
 						message => alert("Your message has been sent!")
 					);
+					}
 				} 
 			</script> 
 	</body>
